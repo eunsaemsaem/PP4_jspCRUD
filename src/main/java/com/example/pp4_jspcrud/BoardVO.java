@@ -8,6 +8,8 @@ public class BoardVO {
 	private String writer;
 	private String content;
 	private Date regdate;
+	//	private String fileimg;
+	private String category;
 	private int cnt;
 	
 	public int getSeq() {
@@ -39,6 +41,14 @@ public class BoardVO {
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+	}
+//	public String getFileimg() { return fileimg; }
+//	public void setFileimg(String fileimg) {this.fileimg = fileimg; }
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public int getCnt() {
 		return cnt;
