@@ -29,36 +29,13 @@
             width: 65%;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 30px;
+        }
+        #subb{
+            padding-left: 160px;
         }
 
         @import url(https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700);
-
-        .clear {
-            clear: both;
-        }
-
-        .pageTitle {
-            font-size: 2em;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1em;
-            color: #82A1F5;
-        }
-
-        .pageSubTitle {
-            margin-bottom: 0.5em;
-            font-size: 1.3em;
-            font-weight: 700;
-            line-height: 1em;
-            color: #222;
-        }
-
-        .articleTitle {
-            font-size: 1.15em;
-            font-weight: 700;
-            line-height: 1em;
-            color: #222;
-        }
 
         .wrapper {
             width: 600px;
@@ -125,8 +102,8 @@
                 <input type="search" class="form-control form-control-dark" placeholder="Search..."
                        aria-label="Search">
             </form>
-            <li class="nav-item"><a href="posts.jsp" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="addpostform.jsp" class="nav-link">Add</a></li>
+            <li class="nav-item"><a href="posts.jsp" class="nav-link">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page">Add</a></li>
         </ul>
     </header>
 </div>
@@ -156,7 +133,7 @@
 <%--                    <a href="addpost.jsp" title="Button border lightblue" class="button btnBorder btnLightBlue">Add Post</a>--%>
 <%--                    <div class="clear"></div>--%>
 <%--                </div>--%>
-                <div>
+                <div id="subb"><br><br>
                     <input type="submit" value="Add Post" class="buttom btnBorder btnLightBlue" style="color: white">
                 </div>
             </td>

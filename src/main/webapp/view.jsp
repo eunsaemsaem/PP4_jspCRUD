@@ -4,13 +4,38 @@
 <html>
 <head>
     <title>view</title>
+
+    <link href="carousel.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <style>
+        #thist{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
 
 <%
     BoardDAO boardDAO = new BoardDAO();
-    String id = request.getParameter("id");
-    BoardVO u = boardDAO.getBoard(Integer.parseInt(id));
+    String numberid = request.getParameter("numberid");
+    BoardVO u = boardDAO.getBoard(Integer.parseInt(numberid));
 %>
 
 <h1 class="visually-hidden">Headers examples</h1>
@@ -28,36 +53,20 @@
                 <input type="search" class="form-control form-control-dark" placeholder="Search..."
                        aria-label="Search">
             </form>
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="addpostform.jsp" class="nav-link">Add</a></li>
+            <li class="nav-item"><a href="posts.jsp" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Add</a></li>
+<%--            <li class="nav-item"><a href="addpostform.jsp" class="nav-link">Add</a></li>--%>
         </ul>
     </header>
 </div>
 
-<h1>View Form</h1>
-
-    <table>
-        <tr>
-            <td>Title:</td>
-            <td><%=u.getTitle()%></td>
-        </tr>
-        <tr>
-            <td>Writer:</td>
-            <td><input type="text" name="writer" value="<%= u.getWriter()%>"/></td>
-        </tr>
-        <tr>
-            <td>Content:</td>
-            <td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td>
-        </tr>
-        <tr>
-            <td>Category:</td>
-            <td><input type="text" name="category" value="<%=u.getCategory()%>"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Edit Post"/>
-                <input type="button" value="Cancel" onclick="history.back()"/></td>
-        </tr>
-    </table>
+<div id="thist">
+    <h2><%=u.getTitle()%></h2><br>
+    <p>Date : <%=u.getRegdate()%></p>
+    <p>Writer : <%=u.getWriter()%></p>
+    <p>Category : <%=u.getCategory()%></p><br><br>
+    <p><%=u.getContent()%></p><br>
+</div>
 
 
 <%--<br><br>--%>

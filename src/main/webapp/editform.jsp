@@ -24,6 +24,31 @@
             crossorigin="anonymous"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <style>
+        #thiset{
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btnLightBlue {
+            background: #0066FF;
+            color:white;
+        }
+
+
+        /* BORDER */
+        .btnLightBlue.btnBorder {
+            box-shadow: 0px 0px 0px 0px #A4D2FF;
+            color: white;
+        }
+
+        .btnLightBlue.btnBorder:hover {
+            box-shadow: 0px 0px 0px 5px #A4D2FF;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,7 +58,7 @@
     BoardVO u = boardDAO.getBoard(Integer.parseInt(id));
 %>
 
-<h1 class="visually-hidden">Headers examples</h1>
+<h1 class="visually-hidden" href="#" onclick="location.href = 'posts.jsp'">Headers examples</h1>
 
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -49,16 +74,15 @@
                 <input type="search" class="form-control form-control-dark" placeholder="Search..."
                        aria-label="Search">
             </form>
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="addpostform.jsp" class="nav-link">Add</a></li>
+            <li class="nav-item"><a href="posts.jsp" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a class="nav-link">Add</a></li>
         </ul>
     </header>
 </div>
 
-<h1>Edit Form</h1>
 <form action="editpost.jsp" method="post">
     <input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
-    <table>
+    <table id="thiset">
         <tr>
             <td>Title:</td>
             <td><input type="text" name="title" value="<%= u.getTitle()%>"/></td>
@@ -76,8 +100,8 @@
             <td><input type="text" name="category" value="<%=u.getCategory()%>"></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Edit Post"/>
-                <input type="button" value="Cancel" onclick="history.back()"/></td>
+            <td colspan="2"><br><br><input class="buttom btnBorder btnLightBlue" type="submit" value="Edit Post"/>
+                <input class="buttom btnBorder btnLightBlue" type="button" value="Cancel" onclick="history.back()"/></td>
         </tr>
     </table>
 </form>

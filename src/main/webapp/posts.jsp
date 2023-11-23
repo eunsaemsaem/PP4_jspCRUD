@@ -65,9 +65,46 @@
             if (a) location.href = 'deletepost.jsp?id=' + id;
         }
     </script>
+    <script>
+        function rowClicked2() {
+
+            var table =document.getElementById('list');
+            var rowList = table.rows;
+
+            for (i=1; i<rowList.length; i++) {
+
+                var row = rowList[i];
+                var str = "";
+
+                row.onclick = function(){
+                    return function(){
+                        //개별적으로 값 가져오기
+
+                        var numberid =this.cells[0].innerHTML;
+                        // var subject = this.cells[1].innerHTML;
+                        // var age = this.cells[2].innerHTML;//나이
+                        // var region = this.cells[3].innerHTML;//지역
+                        // var score = this.cells[4].innerHTML;//점수
+
+                        // alert("click -> "+numberid);
+
+                        // str = "번호:"+number+"/ 이름:"+name+"/ 나이:"+age+"/지역:"+region+"/ 점수:"+score
+                        // document.querySelector('p').innerText =str;
+                        // console.log(number);
+                        location.href = "view.jsp?numberid=" + numberid;
+
+                    };//return
+                }(row);//onclick
+            }//for
+
+        }//function
+
+
+    </script>
 </head>
 
 <body>
+
 <h1 class="visually-hidden">Headers examples</h1>
 
 <div class="container" nav>
@@ -95,7 +132,7 @@
     List<BoardVO> list = boardDAO.getBoardList();
     request.setAttribute("list", list);
 %>
-<table id="list" width="90%">
+<table id="list" width="90%" onclick="rowClicked2()">
     <tr>
         <th>No</th>
         <th>Subject</th>
@@ -119,7 +156,6 @@
         </tr>
     </c:forEach>
 </table>
-<br/><a href="view.jsp">view</a>
 
 <%--<br><br>--%>
 <%--<footer class="text-muted py-5">--%>
